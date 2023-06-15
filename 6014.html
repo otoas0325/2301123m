@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <!-- ended 이용하여 코알라 누르면 노래와 움직이는 이미지나오고 노래끝나면 이미지가 사라짐-->
+    <title>Koala Game</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: #FFDAB9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+        }
+        #koala {
+            width: 200px;
+            cursor: pointer;
+        }
+        .gif {
+            position: absolute;
+            width: 150px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p>코알라 클릭! (노래나옴 소리주의,노래끝나면 이미지 사라짐)</p>
+    <a href="index.html" class="back-button">Back</a>
+    <img id="koala" src="img/animal_stand_koala.png">
+    <img id="left-gif1" class="gif" src="img/kora3.gif" style="left: calc(50% - 400px);">
+    <img id="left-gif2" class="gif" src="img/kora3.gif" style="left: calc(50% - 200px);">
+    <img id="right-gif1" class="gif" src="img/kora3.gif" style="right: calc(50% - 400px);">
+    <img id="right-gif2" class="gif" src="img/kora3.gif" style="right: calc(50% - 200px);">
+    <audio id="music" src="img/y2mate.com - BrooklynBloodPop With DJ Girl By Minus8.mp3"></audio>
+    <script>
+        const koala = document.getElementById('koala');
+        const music = document.getElementById('music');
+        const leftGif1 = document.getElementById('left-gif1');
+        const leftGif2 = document.getElementById('left-gif2');
+        const rightGif1 = document.getElementById('right-gif1');
+        const rightGif2 = document.getElementById('right-gif2');
+        
+        koala.addEventListener('click', () => {
+            music.play();
+            leftGif1.style.display = 'block';
+            leftGif2.style.display = 'block';
+            rightGif1.style.display = 'block';
+            rightGif2.style.display = 'block';
+        });
+        
+        music.addEventListener('ended', () => {
+            leftGif1.style.display = 'none';
+            leftGif2.style.display = 'none';
+            rightGif1.style.display = 'none';
+            rightGif2.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

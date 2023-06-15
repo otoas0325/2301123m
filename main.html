@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <!-- 고릴라 100회 클릭시 고릴라 가 쓰러지는 작은 게임 if문 유튜브 참고함-->
+    <meta charset="UTF-8">
+    <title>고릴라와의 전투</title>
+    <style>
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .alert-box, .game-over {
+            display: none;
+            padding: 20px;
+            background-color: #ffcc00;
+            color: white;
+            border: 1px solid #ffa500;
+        }
+        .alert-box span.closebtn, .game-over span.closebtn {
+            float: right;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: black;
+        }
+        .alert-box span.closebtn:hover, .game-over span.closebtn:hover {
+            color: white;
+            cursor: pointer;
+        }
+        #gorilla {
+            cursor: pointer;
+            width: 500px;
+            position: relative;
+        }
+        .health-bar {
+            position: absolute;
+            top: -20px;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: #FFDAB9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <a class="back-button" href="index.html">Back</a>
+
+    <div class="alert-box" id="startGameAlert">
+        고릴라가 덤벼옵니다! (고릴라를 클릭하세요)
+        <button onclick="closeAlertBox()">예</button>
+        <button onclick="window.location.href='main.html'">아니오</button>
+    </div>
+
+    <div class="health-bar" id="healthBar">HP: 100</div>
+    <img id="gorilla" src="./img/gora2.jpg" onclick="hitGorilla(event)" />
+
+    <div class="game-over" id="gameOverAlert">
+        <span class="closebtn" onclick="resetGame()">&times;</span>
+        고릴라가 쓰러졌습니다.
+    </div>
+
+    <script>
+        var gorillaHealth = 100;
+        var isGameOver = false;
+
+        function startGame() {
+            document.getElementById('startGameAlert').style.display = 'block';
+        }
+
+        function closeAlertBox() {
+            document.getElementById('startGameAlert').style.display = 'none';
+        }
+
+        function hitGorilla(event) {
+            if (isGameOver) return;
+
+            gorillaHealth--;
+
+            document.getElementById('healthBar').innerText = 'HP: ' + gorillaHealth;
+
+            var x = event.clientX;
+            var y = event.clientY;
+            var hpIndicator = document.createElement('span');
+
+            hpIndicator.style.position = 'absolute';
+            hpIndicator.style.color = 'red';
+            hpIndicator.style.left = x + 'px';
+            hpIndicator.style.top = y + 'px';
+            hpIndicator.innerText = '-1 HP';
+
+            document.body.appendChild(hpIndicator);
+
+            setTimeout(function() {
+                hpIndicator.style.top = y - 50 + 'px';
+                hpIndicator.style.opacity = '0';
+            }, 0);
+
+            setTimeout(function() {
+                hpIndicator.parentNode.removeChild(hpIndicator);
+            }, 1000);
+
+            if (gorillaHealth <= 0) {
+                isGameOver = true;
+                document.getElementById('gorilla').src = "./img/gora1.jpg";
+                document.getElementById('gameOverAlert').style.display = 'block';
+            }
+        }
+
+        function resetGame() {
+            document.location.reload();
+        }
+
+        startGame();
+    </script>
+</body>
+</html>

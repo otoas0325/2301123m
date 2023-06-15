@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="UTF-8">
+    <title>곰 등장!</title>
+    <style>
+        
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+            height: 50px;
+            border-radius: 25px;
+            background-color: #FFDAB9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            color: black;
+        }
+
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .alert-box {
+            display: none;
+            margin: 20px;
+            background-color: #ffffcc;
+            border: 1px solid #ffcc00;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .alert-box .closebtn {
+            margin-left: 15px;
+            color: black;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .alert-box .closebtn:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">돌아가기</a>
+    <div class="center">
+        <h1>곰에 대한 소개</h1>
+        <img src="./img/gom.avif" alt="곰의 이미지">
+        <p>곰은 몹시 화나보인다.</p>
+        
+        <div class="input-area">
+            <h2>대답</h2>
+            <label for="user-opinion">곰이 당신에게 말을 걸었다. 대답하시오.:</label><br>
+            <input type="text" id="user-opinion" name="user-opinion"><br>
+            <input type="submit" value="제출" onclick="submitForm()">
+        </div>
+
+        <div class="alert-box">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <strong>주의!</strong> 곰은 당신의 대답이 마음에 안들었는지 공격하였습니다!
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            document.querySelector('.alert-box').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

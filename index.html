@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>동물 소개 사이트</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: scroll;
+            background-image: url("./img/cho.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            display: flex;
+            padding: 10px;
+        }
+
+        .box {
+            flex: 0 0 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #000;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .box:nth-child(1) {
+            background-color: #FFDAB9;
+        }
+
+        .box:nth-child(2) {
+            background-color: #B0E0E6;
+        }
+
+        .box:nth-child(3) {
+            background-color: #F0B2E0;
+        }
+
+        .box:nth-child(4) {
+            background-color: #90EE90;
+        }
+
+        .box:hover {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>동물 소개 사이트</h1>
+    <div class="container">
+        <div class="box" onclick="location.href='table.html';">
+            <header>
+                <h1><img src="./img/animal_usagi_nihon_nousagi.png" style="width: 230px;" alt="토끼"></h1>
+                <nav>
+                    <ul>
+                        <li><a href="table.html">토끼 소개</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div class="box" onclick="location.href='input.html';">
+            <header>
+                <h1><img src="./img/KUMA_bear.png" style="width: 230px;" alt="곰"></h1>
+                <nav>
+                    <ul>
+                        <li><a href="input.html">곰과 이야기하기</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div class="box" onclick="location.href='main.html';">
+            <header>
+                <h1><img src="./img/animal_gorilla.png" style="width: 230px;" alt="고릴라"></h1>
+                <nav>
+                    <ul>
+                        <li><a href="main.html">고릴라랑 싸우기</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div class="box" onclick="location.href='6014.html';">
+            <header>
+                <h1><img src="./img/animal_stand_koala.png" style="width: 230px;" alt="코알라"></h1>
+                <nav>
+                    <ul>
+                        <li><a href="6014.html">코알라의 댄스 ~!</a></li>
+                    </ul>
+                </nav>
+            </header>
+            </div>
+            </div>
+            
+            </body>
+            </html>

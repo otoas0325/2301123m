@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="UTF-8">
+  <title>토끼 소개</title>
+  <style>
+    body {
+      margin: 20;
+      overflow-y: scroll;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .top-section {
+      flex: 1;
+      background-image: url("./img/toki.jpg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .bottom-section {
+      flex: 1;
+      background-color: #FFFACD;
+      padding: 20px;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 100px;
+      height: 50px;
+      border-radius: 25px;
+      background-color: #FFDAB9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* 테이블 스타일 */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: left;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-section">
+      <div class="back-button" onclick="location.href='index.html';">돌아가기</div>
+      <h1 style="color: white;"></h1>
+    </div>
+    <div class="bottom-section">
+      <p>토끼는 토끼목 토끼과의 포유류 동물이다.</p>
+
+      <!-- 토끼 특성 테이블 -->
+      <table>
+        <tr>
+          <th>특성</th>
+          <th>설명</th>
+        </tr>
+        <tr>
+          <td>분류</td>
+          <td>토끼</td>
+        </tr>
+        <tr>
+          <td>수명</td>
+          <td>반려토끼 기준 5년</td>
+
+        </tr>
+        <tr>
+          <td>식성</td>
+          <td>초식</td>
+        </tr>
+        <tr>
+          <td>성장 크기</td>
+          <td>20 - 50cm 토끼종류 마다 다름</td>
+        </tr>
+        <tr>
+          <td>체중</td>
+          <td>0.4 - 2kg 토끼종류 마다 다름</td>
+        </tr>
+      </table>
+
+    </div>
+  </div>
+</body>
+</html>
